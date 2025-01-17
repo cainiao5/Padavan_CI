@@ -27,7 +27,7 @@ on:
         description: 'upload firmware to anonfiles'
         default: 'false'
 env:
-  REPOSITORY_URL: https://github.com/stkuroneko/asuswrt-mt7621at.git
+  REPOSITORY_URL: https://github.com/stkuroneko/asuswrt-modx.git
   WORK_PATH: /opt/asuswrt-modx
   TIME_ZONE: Asia/Shanghai
   FIRMWARE_PATH: /opt/firmwares
