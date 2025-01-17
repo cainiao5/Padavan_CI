@@ -33,7 +33,7 @@ env:
   FIRMWARE_PATH: /opt/firmwares
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -102,7 +102,7 @@ jobs:
         sudo dpkg --add-architecture i386
         sudo dpkg -l | awk '/ii  lib.*deb.sury.org/ {gsub(/:.*/, s, $2); print $2}' | xargs apt show -a | awk '/Package:/ {p=$2} /APT-Sources: .*focal\/main/ {print p"/focal"}' | sudo xargs eatmydata apt install --allow-downgrades
         sudo apt update
-        sudo apt-get -y --no-install-recommends install libncurses5 libncurses5-dev m4 bison gawk flex libstdc++-4.8-dev g++-multilib g++
+        sudo apt-get -y --no-install-recommends install libncurses5 libncurses5-dev m4 bison gawk flex libstdc++ g++-multilib g++
         sudo apt-get -y --no-install-recommends install gengetopt git gitk zlib1g-dev autoconf autopoint libtool shtool autogen mtd-utils intltool sharutils
         sudo apt-get -y --no-install-recommends install docbook-xsl-* libstdc++5 texinfo dos2unix xsltproc binutils u-boot-tools device-tree-compiler python
         sudo apt-get -y --no-install-recommends install qemu gperf liblzo2-dev uuid-dev build-essential lzma-dev liblzma-dev lzma patch cmake intltool yodl yodl-doc
